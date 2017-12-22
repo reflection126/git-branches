@@ -1,0 +1,60 @@
+Git分支常用操作
+Git 相对于 SVN 最强大的优势就在于「分支」，Git 的分支操作简单方便，而实际项目开发中团队合作最依赖的莫过于分支了，关于分支前面的课时也提到过，本课时会详细讲述什么是分支、分支的具体操作以及实际项目开发中是怎样依赖分支进行团队合作的。
+
+1. 什么是分支？
+
+对于分支这个概念，可以这样理解，几个人一起去旅行，走到一个三岔口，每条路可能有不同的风景，大家约定 3 天之后在某地汇聚，然后各自出发了。这三条分叉路就可以理解为各自的分支，而大家汇聚的时候就相当于将各自的分支进行了合并。  
+
+2. 分支的常用操作
+
+通常默认会有一个主分支叫 master ，下面首先来介绍一下关于分支的一些基本操作：
+
+（1）新建一个叫 develop 的分支
+
+git branch develop  
+
+注意，新建分支的命令是基于当前所在分支进行的，即以上是基于 mater 分支新建了一个叫做 develop 的分支，此时 develop 分支与 master 分支的内容完全一样。例如，有 A、B、C三个分支，各分支内容不同，如果当前是在 B 分支，执行新建分支命令，则新建的分支内容与 B 分支相同，同理如果当前在 C 分支，那就是基于 C 分支基础上新建的分支。
+
+（2）切换到 develop 分支
+
+git checkout develop
+
+如果把以上两步合并，即新建并自动切换到 develop 分支：
+
+git checkout -b develop 
+
+（3）把 develop 分支推送到远程仓库
+
+git push origin develop
+
+如果你远程的分支想取名叫 develop2 ，执行以下代码：
+
+git push origin develop:develop2
+
+注意实际开发管理，建议不要这样做，这样会导致很混乱，难管理，建议本地分支与远程分支名称要保持一致。
+
+（4）查看本地分支列表 
+
+git branch 
+
+（5）查看远程分支列表
+
+git branch -r
+
+（6）删除本地分支
+
+git branch -d develop    
+
+git branch -D develop (强制删除)    
+
+（7）删除远程分支
+
+git push origin :develop
+
+如果远程分支有 develop ，而本地没有，想要将远程的 develop 分支迁到本地：
+
+git checkout develop origin/develop
+
+同样的把远程分支迁到本地顺便切换到该分支：
+
+git checkout -b develop origin/develop
