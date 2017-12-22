@@ -1,0 +1,7 @@
+查看分支：git branch
+创建分支：git branch 分支名，分支内容与其父分支保持一致
+切换分支：git checkout 分支名
+新建并切换分支：git checkout -b 分支名
+查看远程分支：git branch -r
+删除分支: git branch -d 分支名
+强制删除分支：git branch -D 分支名
