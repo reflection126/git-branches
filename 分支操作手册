@@ -5,3 +5,6 @@
 查看远程分支：git branch -r
 删除分支: git branch -d 分支名
 强制删除分支：git branch -D 分支名
+将本地分支推送到远程：git push origin 本地分支名
+删除远程分支：先删除本地该分支，然后：git push origin :分支名
+将远程分支迁移到本地并切换到该分支:git checkout -b 分支名 origin/分支名
